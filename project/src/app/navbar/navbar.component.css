@@ -1,0 +1,28 @@
+@import "~bootstrap/dist/css/bootstrap.css";
+
+nav{
+  background-color: #b3000c;
+  font-weight: 900;
+}
+
+nav > a{
+  background: -webkit-linear-gradient(#00BFFF, #CCCCCC);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;  
+}
+
+button.navbar-toggler {
+  background: repeating-linear-gradient(#00BFFF, #CCCCCC);
+}
+
+ul.navbar-nav li:nth-child(odd) a {
+  background: -webkit-radial-gradient(#FAFAD2, #D2691E);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+ul.navbar-nav li:nth-child(even) a{
+  background: -webkit-radial-gradient(#7FFF00, #006400);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

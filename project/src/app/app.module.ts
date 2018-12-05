@@ -7,10 +7,14 @@ import {AngularFireDatabaseModule } from 'angularfire2/database';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { FootnoteComponent } from './footnote/footnote.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NavbarComponent,
+    FootnoteComponent
   ],
   imports: [
     BrowserModule,
