@@ -6,9 +6,16 @@ nav{
 }
 
 nav > a{
-  background: -webkit-linear-gradient(#00BFFF, #CCCCCC);
+  /*background: -webkit-linear-gradient(#00BFFF, #CCCCCC);*/
+  background: -webkit-radial-gradient(#7FFF00, #006400);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;  
+}
+nav > div > ul > li > div{
+  background-color:#b3000c;
+}
+.dropdown-toggle{
+  cursor: pointer;
 }
 
 button.navbar-toggler {
