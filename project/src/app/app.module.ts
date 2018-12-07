@@ -21,7 +21,11 @@ import { MyordersComponent } from './myorders/myorders.component';
 import { AdminproductsComponent } from './admin/adminproducts/adminproducts.component';
 import { AdminordersComponent } from './admin/adminorders/adminorders.component';
 import { AboutComponent } from './about/about.component';
-
+import { AuthService } from './auth.service';
+import { AuthGuard } from './auth-guard.service';
+import { UserService } from './user.service';
+import { AdminusersComponent } from './admin/adminusers/adminusers.component';
+import { AdminAuthGuard } from './admin-auth-guard.service';
 
 @NgModule({
   declarations: [
@@ -37,7 +41,8 @@ import { AboutComponent } from './about/about.component';
     AdminproductsComponent,
     AdminordersComponent,
     LoginComponent,
-    AboutComponent
+    AboutComponent,
+    AdminusersComponent,
   ],
   imports: [
     BrowserModule,
@@ -51,16 +56,22 @@ import { AboutComponent } from './about/about.component';
       {path:'login',component: LoginComponent},
       {path:'products',component: ProductsComponent},
       {path:'shoppingcart',component: ShoppingcartComponent},
-      {path:'checkout',component: CheckoutComponent},
-      {path:'admin/adminproducts',component: AdminproductsComponent},
-      {path:'admin/adminorders',component: AdminordersComponent},
-      {path:'ordersuccess',component: OrdersuccessComponent},
+      {path:'checkout',component: CheckoutComponent, canActivate: [AuthGuard]},
+      {path:'ordersuccess',component: OrdersuccessComponent, canActivate: [AuthGuard]},
       {path:'about',component: AboutComponent},
-      {path:'myorders',component: MyordersComponent},
+      {path:'myorders',component: MyordersComponent, canActivate: [AuthGuard]},
+      {path:'admin/adminproducts',component: AdminproductsComponent, canActivate: [AuthGuard, AdminAuthGuard]},
+      {path:'admin/adminorders',component: AdminordersComponent, canActivate: [AuthGuard, AdminAuthGuard]},
+      {path:'admin/adminusers',component: AdminusersComponent, canActivate: [AuthGuard, AdminAuthGuard]},
       // {path:'',component: Component},
     ])
   ],
-  providers: [],
+  providers: [
+    AuthService,
+    AuthGuard,
+    UserService,
+    AdminAuthGuard
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

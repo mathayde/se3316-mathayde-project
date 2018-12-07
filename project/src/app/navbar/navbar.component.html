@@ -9,18 +9,25 @@
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
         <a class="nav-link" routerLink="/shoppingcart">Shopping Cart</a>
+      
+      </li>
+      <ng-template #anonymousUser>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/login">Login</a>
+      </li>
+      </ng-template>
+      <li ngbDropdown *ngIf="appUser;else anonymousUser" class="nav-item dropdown">
+        <a ngbDropdownToggle class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{appUser.name}}</a>
+        <div ngbDropdownMenu class="dropdown-menu show" aria-labelledby="dropdown01">
+          <a class="dropdown-item" routerLink="/myorders">My Orders</a>
+          <a *ngIf="appUser.adminstatus" class="dropdown-item" routerLink="/admin/adminorders">Manage Orders</a>
+          <a *ngIf="appUser.adminstatus" class="dropdown-item" routerLink="/admin/adminproducts">Manage Products</a>
+          <a *ngIf="appUser.adminstatus" class="dropdown-item" routerLink="/admin/adminusers">Manage Users</a>
+          <a class="dropdown-item" (click)="logout()">Logout</a>
+        </div>
       </li>
       <li class="nav-item">
         <a class="nav-link" routerLink="/about">About</a>
-      </li>
-      <li ngbDropdown class="nav-item dropdown show">
-        <a ngbDropdownToggle class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Username</a>
-        <div ngbDropdownMenu class="dropdown-menu show" aria-labelledby="dropdown01">
-          <a class="dropdown-item" routerLink="/myorders">My Orders</a>
-          <a class="dropdown-item" routerLink="/admin/adminorders">Manage Orders</a>
-          <a class="dropdown-item" routerLink="/admin/adminproducts">Manage Products</a>
-          <a class="dropdown-item" routerLink="/admin/adminproducts">Logout</a>
-        </div>
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">
