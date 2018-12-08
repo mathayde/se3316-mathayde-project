@@ -17,12 +17,12 @@ export class AuthService {//used to implement the login and log out functions in
   login(){
     let returnUrl= this.route.snapshot.queryParamMap.get('returnUrl')||'/';
     localStorage.setItem('returnUrl',returnUrl);
-    this.afAuth.auth.signInWithRedirect(new firebase.auth.GoogleAuthProvider());
-  }
-  logout(){
-    this.afAuth.auth.signOut();
-  }
-  get appUser$(): Observable<Account>{
+    this.afAuth.auth.signInWithRedirect(new firebase.auth.GoogleAuthProvider()); //as seen here, an OAuth (specifically Google's through firebase) is used to provide authentication/login
+  }                                                                             // which I believe it was Mr. Pascual who said it was a valid form of user authentication
+  logout(){                                                                     //new users who connect for the first time are added into the database automatically when they
+    this.afAuth.auth.signOut();                                                 //successfully connect with their google account
+  }                                                                             //in addition the hashing, validation and other security issues should be effectively covered by this OAuth
+  get appUser$(): Observable<Account>{                                          //although at this time it is only my google account in the database that, as store manager has a valid admin status
     return this.user$
       .switchMap(user => {
         if(user) return this.userService.get(user.uid);
