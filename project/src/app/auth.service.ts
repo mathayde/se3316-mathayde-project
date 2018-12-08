@@ -9,7 +9,7 @@ import 'rxjs/add/operator/switchMap';
 import { of } from 'rxjs';
 
 @Injectable()
-export class AuthService {
+export class AuthService {//used to implement the login and log out functions in a seperatable and unit testable way
   user$: Observable<firebase.User>;
   constructor(private afAuth: AngularFireAuth, private userService:UserService,private route: ActivatedRoute) { 
     this.user$=afAuth.authState;

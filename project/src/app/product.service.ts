@@ -5,7 +5,7 @@ import { Product } from './models/product';
 import { map } from 'rxjs/operators';
 
 @Injectable()
-export class ProductService{
+export class ProductService{ //this provides an admin with the tools to manipulate the product information behind the scenes
   
   constructor(private db: AngularFireDatabase){}
   

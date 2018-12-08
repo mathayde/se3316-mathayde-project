@@ -59,17 +59,17 @@ import { ProductService } from './product.service';
     NgbModule.forRoot(),
     FormsModule,
     RouterModule.forRoot([
-      {path:'',component: HomeComponent},
+      {path:'',component: HomeComponent}, //these 5 links should be available to unauthorized users
       {path:'login',component: LoginComponent},
       {path:'products',component: ProductsComponent},
       {path:'about',component: AboutComponent},
-            
       {path:'shoppingcart',component: ShoppingcartComponent},
-      {path:'checkout',component: CheckoutComponent, canActivate: [AuthGuard]},
+      
+      {path:'checkout',component: CheckoutComponent, canActivate: [AuthGuard]}, //these 3 links are available to any general user who has logged in
       {path:'ordersuccess/:id',component: OrdersuccessComponent, canActivate: [AuthGuard]},
       {path:'myorders',component: MyordersComponent, canActivate: [AuthGuard]},
       
-      {path:'admin/adminproducts',component: AdminproductsComponent, canActivate: [AuthGuard, AdminAuthGuard]},
+      {path:'admin/adminproducts',component: AdminproductsComponent, canActivate: [AuthGuard, AdminAuthGuard]}, //these 4 links are only available to those with admin status like the store manager and those (s)he has authorize
       {path:'admin/adminproducts/new',component: ProductFormComponent, canActivate: [AuthGuard, AdminAuthGuard]},
       {path:'admin/adminorders',component: AdminordersComponent, canActivate: [AuthGuard, AdminAuthGuard]},
       {path:'admin/adminusers',component: AdminusersComponent, canActivate: [AuthGuard, AdminAuthGuard]},
