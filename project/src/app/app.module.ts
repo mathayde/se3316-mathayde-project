@@ -59,13 +59,13 @@ import { ProductService } from './product.service';
     NgbModule.forRoot(),
     FormsModule,
     RouterModule.forRoot([
-      {path:'',component: HomeComponent}, //these 5 links should be available to unauthorized users
+      {path:'',component: HomeComponent}, //these 4 links should be available to unauthorized users
       {path:'login',component: LoginComponent},
       {path:'products',component: ProductsComponent},
       {path:'about',component: AboutComponent},
-      {path:'shoppingcart',component: ShoppingcartComponent},
       
-      {path:'checkout',component: CheckoutComponent, canActivate: [AuthGuard]}, //these 3 links are available to any general user who has logged in
+      {path:'shoppingcart',component: ShoppingcartComponent, canActivate: [AuthGuard]},
+      {path:'checkout',component: CheckoutComponent, canActivate: [AuthGuard]}, //these 4 links are available to any general user who has logged in
       {path:'ordersuccess/:id',component: OrdersuccessComponent, canActivate: [AuthGuard]},
       {path:'myorders',component: MyordersComponent, canActivate: [AuthGuard]},
       

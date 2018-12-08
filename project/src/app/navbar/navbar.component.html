@@ -8,8 +8,7 @@
   <div class="collapse navbar-collapse" id="navbarsExampleDefault">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a class="nav-link" routerLink="/shoppingcart">Shopping Cart</a>
-      
+        <a *ngIf="appUser" class="nav-link" routerLink="/shoppingcart">Shopping Cart</a>
       </li>
       <ng-template #anonymousUser>
       <li class="nav-item">
