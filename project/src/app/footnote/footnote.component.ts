@@ -5,7 +5,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './footnote.component.html',
   styleUrls: ['./footnote.component.css']
 })
-export class FootnoteComponent implements OnInit {
+export class FootnoteComponent implements OnInit { //taken from the bootstrap open example library
 
   constructor() { }
 
